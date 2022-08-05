@@ -1,0 +1,18 @@
+.app-menu_list {
+    display: flex;
+}
+
+.app-menu_item {
+    list-style: none;
+}
+
+.app-menu_link {
+    color: #595959;
+    font-family: sans-serif;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.app-menu_link:hover {
+    text-decoration: underline;
+}
