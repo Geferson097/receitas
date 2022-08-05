@@ -3,7 +3,7 @@ import "./Header.css"
 import RecipiesServiceApi from "../recipieApi";
 import MuiAutocomplete from 'mui-autocomplete';
 function Header() {
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState();
     useEffect(() => {
         RecipiesServiceApi
             .get("/users/geferson097")
@@ -14,7 +14,6 @@ function Header() {
     }, [])
     return(
         <div className="produto-container">
-                {user.map(user => (
                     <MuiAutocomplete
                         placeholder="Recipies"
                         name="Recipies"
@@ -22,7 +21,6 @@ function Header() {
                         setdata={user?.login}
                         template={{title: 'name'}}
                     />
-                ))}
         </div>
     )
 }
