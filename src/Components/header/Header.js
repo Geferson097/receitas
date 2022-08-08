@@ -1,28 +1,34 @@
 import React, {useEffect, useState} from "react";
 import "./Header.css"
-import RecipiesServiceApi from "../recipieApi";
-import MuiAutocomplete from 'mui-autocomplete';
-function Header() {
-    const [user, setUser] = useState();
-    useEffect(() => {
-        RecipiesServiceApi
-            .get("/users/geferson097")
-            .then((response) => setUser(response.data))
+import DataApi from "../api/GetRecipies";
+import Form from "../form";
+
+function Header(props) {
+    const [recipies, setRecipies] = useState([]);
+    useEffect( () => {
+        DataApi
+            .get("search?q=" + "pizza")
+            .then((response) => {
+                setRecipies(response.data.recipes)
+            })
             .catch((err) => {
                 console.log("Error" + err)
             }, []);
     }, [])
+
     return(
-        <div className="produto-container">
-                    <MuiAutocomplete
-                        placeholder="Recipies"
-                        name="Recipies"
-                        setvalue={""}
-                        setdata={user?.login}
-                        template={{title: 'name'}}
-                    />
+        <div >
+            <header className="container">
+                <img src={`${process.env.PUBLIC_URL}/logoHeader.png`} alt="Logo" className="header__logo" />
+                <Form className="search" />
+            </header>
+
+
         </div>
     )
+
+
+
 }
 
 export default Header

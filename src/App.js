@@ -1,16 +1,20 @@
-import React, {useEffect, useState} from "react";
-import RecipieServiceApi from "./Components/recipieApi";
+import React from "react";
 import Header from "./Components/header";
 import AutoComplete from "./Components/autoComplete";
-import {Autocomplete} from "@mui/material";
 
 const App = () => {
 
     return (
-        <div className="App">
-           <Header />
-        </div>
+        <body>
+            <div >
+                <Header/>
+            </div>
+
+        </body>
+
 
     )
 }
 export default App;
+
+

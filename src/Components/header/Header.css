@@ -5,6 +5,17 @@
   align-items: center;
   justify-content: space-between;
 }
+.sugestion{
+  cursor: pointer;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+
+}
+.sugestion:hover {
+  background-color: grey;
+}
+
 .header__logo {
   margin-left: 4rem;
   height: 4.6rem;
