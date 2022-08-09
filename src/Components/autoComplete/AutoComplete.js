@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import {useEffect, useState} from "react";
-import DataApi from "../api/GetRecipies";
+import DataApi from "../api/ApiRecipies";
 
 function AutoComplete(props) {
     const [recipies, setRecipies] = useState([]);
