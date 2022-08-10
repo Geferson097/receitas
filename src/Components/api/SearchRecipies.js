@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import api from "./ApiRecipies";
 
-async function GetRecipies(props) {
+async function SearchRecipies(props) {
     let data = [];
     await api
         .get("search?q=" + props)
@@ -14,4 +14,4 @@ async function GetRecipies(props) {
     return data;
 
 }
-export default GetRecipies
+export default SearchRecipies

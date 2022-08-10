@@ -1,35 +1,31 @@
 import React, {useState} from "react";
-import styles from "./styles.css"
+import "./styles.css"
 import Header from "./Components/header/Header";
 import Results from "./Components/body/Results";
-import GetRecipies from "./Components/api/GetRecipies";
+import SearchRecipies from "./Components/api/SearchRecipies";
+import GetIngredients from "./Components/api/GetIngredients";
+import Ingredients from "./Components/body/Ingredients";
 
 const App = () => {
 
-    const [recipies , setRecipies] = useState([])
+    const [recipies, setRecipies] = useState([])
 
-    async function onSearch(recipieSearch){
-        console.log(recipieSearch)
-        const data = await GetRecipies(recipieSearch)
-        setRecipies(data)
+    async function onSearch(recipieSearch) {
+        setRecipies(await SearchRecipies(recipieSearch))
+    }
 
+    async function onClickRecipie(ingredientToGet) {
+        setRecipies(await GetIngredients(ingredientToGet))
     }
-    function setValues(){
-        recipies.map(rec =>
-            recipies.title
-        )
-    }
-    console.log(recipies)
+
     return (
-
         <body className="header">
-            <div >
-                <Header onSearch={onSearch} />
-                <Results onReturn={recipies}/>
-            </div>
+        <div>
+            <Header onSearch={onSearch}/>
+            <Results onReturn={recipies}/>
+            <Ingredients />
+        </div>
         </body>
-
-
     )
 }
 export default App;

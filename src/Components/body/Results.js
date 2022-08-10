@@ -1,21 +1,28 @@
-import {Card, CardMedia} from "@mui/material";
+import {CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 
-const Results = (...props) => {
-    console.log("results" + props.map(p => props.title))
-    return(
-        <div className="body">
-            <div id="nav-sec">
-                <Card className ="card">Menu secundario </Card>
-                <ul>
-                    <li>
-                        <Card>
-                        </Card>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-
+const Results = ({onReturn}) => {
+    return (
+        <> {onReturn.map(receita => {
+            return (
+                <card sx={{maxWidth: 10}}>
+                    <CardActionArea className="cards">
+                        <CardMedia
+                            component="img"
+                            height="140"
+                            image={receita.image_url}
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                {receita.title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {receita.publisher}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </card>
+            )
+        })}</>
     )
 
 }
