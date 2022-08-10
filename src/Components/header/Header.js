@@ -4,9 +4,9 @@ import Form from "./form/Form";
 function Header(props) {
     return(
         <div >
-            <header className="container">
-                <img src={`${process.env.PUBLIC_URL}/logoHeader.png`} alt="Logo" className="header__logo" />
-                <Form className="search"
+            <header className="header">
+                <img src={`${process.env.PUBLIC_URL}/logoHeader.png`} alt="Logo" className="icon__header" />
+                <Form className="form"
                       onSearch={props.onSearch}/>
             </header>
         </div>

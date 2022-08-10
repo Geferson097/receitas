@@ -7,11 +7,11 @@ const Form = (props) => {
         setTextValue(e.target.value)
     };
     return (
-        <div className="container">
+        <div className="form">
             <input id="searchInput" name="searchInput" type="text" className="search__field" placeholder="Muitas Receitas..."
                 onChange={onChance}
                 value={textValue}/>
-            <button id="searchButton" name="searchButton" className="btn search__btn"
+            <button id="searchButton" name="searchButton" className="btn"
                 onClick={()=> props.onSearch(textValue)}>
                 <FaSearch/>
                 <span>Search</span>

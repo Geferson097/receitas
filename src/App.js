@@ -22,7 +22,7 @@ const App = () => {
     console.log(recipies)
     return (
 
-        <body>
+        <body className="header">
             <div >
                 <Header onSearch={onSearch} />
                 <Results onReturn={recipies}/>
