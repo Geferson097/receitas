@@ -4,26 +4,32 @@ import Header from "./Components/header/Header";
 import Results from "./Components/body/Results";
 import SearchRecipies from "./Components/api/SearchRecipies";
 import GetIngredients from "./Components/api/GetIngredients";
-import Ingredients from "./Components/body/Ingredients";
 
 const App = () => {
 
     const [recipies, setRecipies] = useState([])
 
     async function onSearch(recipieSearch) {
-        setRecipies(await SearchRecipies(recipieSearch))
+        const setRecipieSearch = "search?q=" + recipieSearch
+        setRecipies(await SearchRecipies(setRecipieSearch))
     }
 
     async function onClickRecipie(ingredientToGet) {
-        setRecipies(await GetIngredients(ingredientToGet))
+        const setIngredientsSearch = "/get?rId=" + ingredientToGet
+        const receitaDetail = await GetIngredients(setIngredientsSearch)
+        const updatedRecipies = [...recipies]
+        const founded = updatedRecipies.find(updatedRecipie => updatedRecipie.recipe_id == ingredientToGet)
+        founded.ingredients = receitaDetail.ingredients
+        setRecipies(updatedRecipies)
+
     }
 
     return (
-        <body className="header">
-        <div>
+        <body className="body">
+        <div >
             <Header onSearch={onSearch}/>
-            <Results onReturn={recipies}/>
-            <Ingredients />
+            <Results onReturn={recipies}
+                     onClickRecipie={onClickRecipie}/>
         </div>
         </body>
     )

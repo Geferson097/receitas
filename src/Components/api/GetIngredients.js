@@ -3,9 +3,9 @@ import api from "./ApiRecipies";
 async function GetIngredients(props) {
     let data = [];
     await api
-        .get("/get?rId" + props)
+        .get(props)
         .then((response) => {
-            data = response.data.recipes
+            data = response.data.recipe
         })
         .catch((err) => {
             console.log("Error" + err)

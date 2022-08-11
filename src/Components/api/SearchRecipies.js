@@ -4,7 +4,7 @@ import api from "./ApiRecipies";
 async function SearchRecipies(props) {
     let data = [];
     await api
-        .get("search?q=" + props)
+        .get(props)
         .then((response) => {
             data = response.data.recipes
         })
