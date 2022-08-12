@@ -10,12 +10,12 @@ const Form = (props) => {
         if (e.which === 13 || e.keyCode === 13) {props.onSearch(textValue)}
     }
     return (
-        <div className="container">
-            <input id="searchInput" name="searchInput" type="text" className="search__field" placeholder="Muitas Receitas..."
+        <div className="form_content">
+            <input id="searchInput" name="searchInput" type="text" className="header_search__field" placeholder="Muitas Receitas..."
                 onChange={onChange}
                 onKeyPress={onPressEnter}
                 value={textValue}/>
-            <button id="searchButton" name="searchButton" className="btn "
+            <button id="searchButton"  type="button" name="searchButton" className="header_btn_search"
                 onClick={()=> props.onSearch(textValue)}>
                 <FaSearch/>
                 <span>Search</span>
