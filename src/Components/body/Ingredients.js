@@ -1,8 +1,19 @@
-const Ingredients = ({ingredients}) => {
-    console.log(ingredients)
-    return (
-        <div className="recipe_ingredients">
-            {ingredients.map(ingredient => <li>{ingredient}</li> )}
+
+const Ingredients = (props) => {
+   return (
+        <div className="recipe__quantity">
+            <tr className="recipe__ingredients">
+                <button className="recipie_bookmark"
+                onClick={props.onClickAddBookmark}>
+                    <img className="recipie_bookmark_icon" src={`${process.env.PUBLIC_URL}/bookmarkAdd.png`}/>
+
+                </button>
+                {props.ingredients.map(ingredient =>
+                    <td>
+                        <img src={`${process.env.PUBLIC_URL}/checkMarkIcon.png`}/>
+                        {ingredient}
+                    </td>)}
+            </tr>
         </div>
     )
 }

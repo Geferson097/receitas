@@ -22,21 +22,42 @@
 .header_icon {
     transition: all .3s;
     background-color: lightcyan;
-    height: 9vh;
-    width: 6vw;
+    height: 76px;
+    width: 90px;
     fill: #F59A83;
     position: absolute;
     left: 14vw;
 }
 .header_icon_bookmarkes {
-    background-color:lightcyan;
+    background-color: lightcyan;
+    right: 50px;
+    height: 70px;
+    width: 80px;
     display: flow;
     transition: all .1s;
-    height: 9vh;
-    width: 6vw;
+}
+.header_button_home {
+    background-color: lightcyan;
+    display: flex;
+    transition: all .1s;
+    height: 70px;
+    width: 80px;
+
     fill: #F59A83;
-    position: absolute;
-    left: 150vh;
+    position: relative;
+    left: 12vh;
+
+}
+.header_button_bookmarkes {
+    background-color: lightcyan;
+    display: flex;
+    transition: all .1s;
+     height: 70px;
+     width: 80px;
+
+    fill: #F59A83;
+    position: relative;
+    left: 153vh;
 }
 
 .header_search__field {
@@ -142,6 +163,9 @@
     margin-left: 20vw;
     top: 12vh;
 }
+.cards:first-child{
+    padding-top: 20px
+}
 
 .card__img {
     width: 50vw;
@@ -154,5 +178,60 @@
 }
 
 
+.btn__addBookmark {
+background-image: linear-gradient(to right bottom,#fbdb89,#f48982);
+border-radius: 50%;
+border: none;
+cursor: pointer;
+height: 4.5rem;
+width: 4.5rem;
+transition: all .2s;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
 
 
+.btn__show_bookmarks {
+    height: 100%;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 1.5rem;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+}
+
+/*RECIPIES*/
+
+.recipe__ingredients {
+    padding: 5rem 8rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    background-color: #f2efee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipie_bookmark{
+    position: relative;
+    height: 40px;
+    width: 30px;
+    bottom: 70px;
+    left: 435px;
+}
+
+.recipie_bookmark_icon{
+    position: center;
+    height: 30px;
+    width: 24px;
+
+}

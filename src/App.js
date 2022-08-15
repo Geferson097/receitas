@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./styles.css"
 import Header from "./Components/header/Header";
 import Results from "./Components/body/Results";
@@ -10,6 +10,7 @@ import NavigationIcon from '@mui/icons-material/Navigation';
 const App = () => {
 
     const [recipies, setRecipies] = useState([])
+    const [bookmarkes, setBookemarke] = useState([])
 
     async function onSearch(recipieSearch) {
         const setRecipieSearch = "search?q=" + recipieSearch
@@ -23,20 +24,48 @@ const App = () => {
         })
     }
 
-    async function onClickRecipie(ingredientToGet) {
-        const setIngredientsSearch = "/get?rId=" + ingredientToGet
-        const receitaDetail = await GetIngredients(setIngredientsSearch)
+    async function onClickRecipie(idRecipieToGetIngredient) {
+        const ingredients = await GetIngredients("/get?rId=" + idRecipieToGetIngredient)
+        findIngredientsByRecipieId(ingredients, idRecipieToGetIngredient)
+
+    }
+
+    function findIngredientsByRecipieId(receitaDetail, recipieId)
+    {
         const updatedRecipies = [...recipies]
-        const founded = updatedRecipies.find(updatedRecipie => updatedRecipie.recipe_id === ingredientToGet)
+        const founded = findOne(updatedRecipies,recipieId)
         founded.ingredients = receitaDetail.ingredients
         setRecipies(updatedRecipies)
+
     }
+    function findOne(recipieToBookmaker,recipieId){
+        return recipieToBookmaker.find(recipieToBookmaker => recipieToBookmaker.recipe_id === recipieId)
+    }
+
+
+    function onClickAddBookmark(recipieId){
+        const recipieToBookmaker = [...recipies]
+        const recipietoAdd = findOne(recipieToBookmaker,recipieId)
+        const data = JSON.parse(window.localStorage.getItem("bookmarkes")) || []
+
+        data.push(recipietoAdd)
+        window.localStorage.setItem("bookmarkes" ,JSON.stringify(data))
+        console.log((data))
+        setBookemarke(data)
+    }
+
+    function onClickShowBookmark(){
+        const data = JSON.parse(window.localStorage.getItem("bookmarkes")) || []
+    }
+
 
 
     return (
         <div className="app_body">
-            <Header onSearch={onSearch}/>
+            <Header onSearch={onSearch}
+                    onClickShowBookmark={onClickShowBookmark}/>
             <Results onReturn={recipies}
+                     onClickAddBookmark={onClickAddBookmark}
                      onClickRecipie={onClickRecipie}/>
 
             <Fab variant="extended" onClick={ScrollToTop} className="button_scrollTop">

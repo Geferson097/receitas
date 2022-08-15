@@ -1,9 +1,7 @@
-import {Card, CardActionArea, CardContent, CardMedia, Fab, Typography} from "@mui/material";
+import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import Ingredients from "./Ingredients";
 import useCollapse from "react-collapsed";
-import NavigationIcon from "@mui/icons-material/Navigation";
-import React, {useState} from "react";
-
+import React from "react";
 
 const Results = (props) => {
     const {isExpanded, getToggleProps} = useCollapse();
@@ -15,6 +13,7 @@ const Results = (props) => {
                             <Card className="card"
                                   {...getToggleProps()}>
                                 <CardActionArea
+
                                     value={receita.recipe_id}
                                     onClick={() => props.onClickRecipie(receita.recipe_id)}>
                                     <CardMedia className="card__img"
@@ -33,13 +32,15 @@ const Results = (props) => {
                                     </CardContent>
                                 </CardActionArea>
                             </Card>
-                            {isExpanded ? <Ingredients ingredients={receita.ingredients || []}/> : null}
+                            {isExpanded ? <Ingredients
+                                onClickAddBookmark={() => props.onClickAddBookmark(receita.recipe_id)}
+                                ingredients={receita.ingredients || []}/> : null}
                             <div>
                             </div>
                         </div>
                     )
                 }
-                )
+            )
             }
         </div>
     )
