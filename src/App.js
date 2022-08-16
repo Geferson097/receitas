@@ -50,30 +50,29 @@ const App = () => {
 
         data.push(recipietoAdd)
         window.localStorage.setItem("bookmarkes" ,JSON.stringify(data))
-        console.log((data))
-        setBookemarke(data)
+
     }
 
     function onClickShowBookmark(){
         const data = JSON.parse(window.localStorage.getItem("bookmarkes")) || []
+        setBookemarke(data)
     }
 
-
-
     return (
-        <div className="app_body">
-            <Header onSearch={onSearch}
-                    onClickShowBookmark={onClickShowBookmark}/>
-            <Results onReturn={recipies}
-                     onClickAddBookmark={onClickAddBookmark}
-                     onClickRecipie={onClickRecipie}/>
-
-            <Fab variant="extended" onClick={ScrollToTop} className="button_scrollTop">
-                <NavigationIcon/>
-                Navigate
-            </Fab>
+        <div className="container">
+            <div className="Header">
+                <Header onSearch={onSearch}
+                        onClickShowBookmark={onClickShowBookmark}
+                        bookmarkes={bookmarkes}/>
+            </div>
+            <>
+                <Results onReturn={recipies}
+                         onClickAddBookmark={onClickAddBookmark}
+                         onClickRecipie={onClickRecipie}/>
+            </>
             <div className="copyright" />
         </div>
+
 
     )
 }

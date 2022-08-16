@@ -6,7 +6,7 @@ import React from "react";
 const Results = (props) => {
     const {isExpanded, getToggleProps} = useCollapse();
     return (
-        <div className="results-list">
+        <div className="Searchs_body">
             {props.onReturn.map(receita => {
                     return (
                         <div className="cards">
@@ -42,7 +42,7 @@ const Results = (props) => {
                 }
             )
             }
-        </div>
+            </div>
     )
 
 }

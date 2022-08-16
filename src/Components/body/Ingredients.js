@@ -1,7 +1,7 @@
 
 const Ingredients = (props) => {
    return (
-        <div className="recipe__quantity">
+        <div className="Results_body">
             <tr className="recipe__ingredients">
                 <button className="recipie_bookmark"
                 onClick={props.onClickAddBookmark}>
