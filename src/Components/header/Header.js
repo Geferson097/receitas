@@ -5,31 +5,32 @@ import Bookmarks from "../bookmark/Bookmark";
 function Header(props) {
     const [isExpanded, setExpanded] = useState(false);
 
-    function onClickExpandBookmarks(){
-        setExpanded(true)
-        return(props.onClickShowBookmark)
+    function onClickExpandBookmarks() {
+        isExpanded ? setExpanded(false) : setExpanded(true)
+        props.onClickShowBookmark()
     }
 
-
-    console.log(isExpanded)
     return (
-        <div className="Header">
-            <div className="Header_logo">
-                <img src={`${process.env.PUBLIC_URL}/logoHeader.png`} alt="Logo" className="Header_icon "/>
-            </div>
-            <Form onSearch={props.onSearch}/>
-            <div className="Header_nav">
-                    <button className="Header_button_bookmark" onClick={onClickExpandBookmarks}
-                    onBlur={() => setExpanded(false)}>
+        <>
+            <div className="Header">
+                <div className="Header_logo">
+                    <img src={`${process.env.PUBLIC_URL}/logoHeader.png`} alt="Logo" className="Header_icon "/>
+                </div>
+                <Form onSearch={props.onSearch}/>
+                <div className="Header_nav">
+                    <button className="Header_button_bookmark" onClick={onClickExpandBookmarks} >
                         <img className="Header_icon_bookmarkes" src={`${process.env.PUBLIC_URL}/bookMark.png`}
                              height="70"/>
                     </button>
-                    {isExpanded ? <Bookmarks
-                        bookmarkes={props.bookmarkes}/> : null}
-
+                </div>
             </div>
-        </div>
-    )
+            {isExpanded ? <Bookmarks
+                onClickRecipieDetail={props.onClickRecipieDetail}
+                onClick={onClickExpandBookmarks}
+                bookmarkes={props.bookmarkes}/> : null}
+        </>
+            )
+
 }
 
 export default Header

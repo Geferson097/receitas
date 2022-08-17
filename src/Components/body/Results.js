@@ -33,7 +33,7 @@ const Results = (props) => {
                                 </CardActionArea>
                             </Card>
                             {isExpanded ? <Ingredients
-                                onClickAddBookmark={() => props.onClickAddBookmark(receita.recipe_id)}
+                                onClickAddBookmark={() => props.onClickAddBookmark(receita)}
                                 ingredients={receita.ingredients || []}/> : null}
                             <div>
                             </div>
