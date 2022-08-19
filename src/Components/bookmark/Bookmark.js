@@ -1,35 +1,21 @@
 import React from "react";
-import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
+import ExpandableCard from "../expandableCard/ExpandableCard";
 
 function Bookmarks(props) {
-
     return (
         <div className="Bookmarks_view">
-            {props.bookmarkes.map(bookmarke => {
-               return(
-                   <Card className="Bookmark_card" key={bookmarke.recipe_id}>
-                       <CardActionArea
-                           onClick={() => props.onClickRecipieDetail(bookmarke.recipe_id)}>
-                           <CardMedia className=" preview__fig "
-                                      component="img"
-                                      image={bookmarke.image_url}/>
-                           <CardContent className="card">
-                               <Typography>
-                                   {bookmarke.title}
-                               </Typography>
-                               <Typography>
-                                   Publisher:
-                                   {bookmarke.publisher}
-                               </Typography>
-                           </CardContent>
-                       </CardActionArea>
-                   </Card>
-               )
-            })}
+            {props.bookmarkes.map((receita) => {
+                return (
+                    <ExpandableCard key={receita.recipe_id}
+                                    recipie={receita}
+                                    onClickRecipie={props.onClickRecipieDetail}
+                                    ingredient={props.Ingredients || []}/>
+                )
+            })
+            }
         </div>
     )
 }
-
 export default Bookmarks
 
 
