@@ -2,6 +2,8 @@ import React from "react";
 import ExpandableCard from "../expandableCard/ExpandableCard";
 
 const Results = (props) => {
+
+
     return (
         <>
             {props.onReturn.map((receita) => {
@@ -11,7 +13,8 @@ const Results = (props) => {
                                 onClickRecipie={props.onClickRecipie}
                                 ingredient={props.Ingredients}
                                 onClickAddBookmark={props.onClickAddBookmark}
-                                isFavorited={props.receita}/>
+                                isFavorited={props.receita}
+                                showButtonBookmark={true}/>
                         )})
             }
         </>

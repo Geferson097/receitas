@@ -5,7 +5,6 @@ import Results from "./Components/body/Results";
 import SearchRecipies from "./Components/api/SearchRecipies";
 import GetIngredients from "./Components/api/GetIngredients";
 
-
 const RECIPE_KEYS = "FAVORITADAS"
 
 const App = () => {
@@ -43,18 +42,29 @@ const App = () => {
         const allRecipiesSaved =  JSON.parse(window.localStorage.getItem(RECIPE_KEYS))
         setBookemarke(allRecipiesSaved)
     }
+
     async function onClickRecipieDetail(idRecipieToGetIngredient) {
         const setIngredientsSearch = "/get?rId=" + idRecipieToGetIngredient
-        findIngredientsByRecipieId(await GetIngredients(setIngredientsSearch),idRecipieToGetIngredient)
-
+        const ingredient = await GetIngredients(setIngredientsSearch)
+        if(recipies === [])
+        {
+            findIngredientsByRecipieId(ingredient,idRecipieToGetIngredient)
+        }
+        else {
+            setIngredients(ingredient)
+        }
     }
 
     function findIngredientsByRecipieId(receitaDetail, idRecipieToGetIngredient)
     {
+        
+        
         const updatedRecipies = [...recipies]
+
         const founded = updatedRecipies.find(updatedRecipie => updatedRecipie.recipe_id === idRecipieToGetIngredient)
         founded.ingredients = receitaDetail.ingredients
         setIngredients(receitaDetail)
+        console.log('==> recipies ==> ', recipies);
 
     }
     
@@ -66,16 +76,11 @@ const App = () => {
              return {...item, favorited : Boolean(founded) }
             }
         )
-        isFavorited()
         setRecipies(receitasUpdated)
+    }
 
-    }
-    function isFavorited(){
-        const favorite =recipies.map(favorite => favorite.favorited)
-        return favorite
-    }
     return (
-        <div className="Container">
+        <div className="Container" id="container">
             <div className="Header">
                 <Header onSearch={onSearch}
                         onClickRecipieDetail={onClickRecipieDetail}
@@ -89,7 +94,6 @@ const App = () => {
                          onClickAddBookmark={onClickAddBookmark}
                          onClickRecipie={onClickRecipieDetail}
                          Ingredients={Ingredients}/>
-
 
             </div>
             <div className="copyright"/>

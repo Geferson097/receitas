@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Form from "./form/Form";
 import Bookmarks from "../bookmark/Bookmark";
 
 function Header(props) {
 
 
-    const [isExpanded, setExpanded] = useState(false);
+    let [isExpanded, setExpanded] = useState(false);
+
 
     function onClickExpandBookmarks() {
         isExpanded ? setExpanded(false) : setExpanded(true)
         props.onClickShowBookmark()
     }
+
 
     return (
         <>
@@ -18,7 +20,7 @@ function Header(props) {
                 <img src={`${process.env.PUBLIC_URL}/logoHeader.png`} alt="Logo" className="Header_icon "/>
             </div>
             <Form onSearch={props.onSearch}/>
-            <div className="Header_nav">
+            <div className="Header_nav" >
                 <button className="Header_button_bookmark" onClick={onClickExpandBookmarks}>
                     <img className="Header_icon_bookmarkes"  alt="Bookmark" src={`${process.env.PUBLIC_URL}/bookMark.png` }
                          height="70"/>
