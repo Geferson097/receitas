@@ -5,39 +5,34 @@ import Ingredients from "../body/Ingredients";
 function ExpandableCard(props) {
 
     const [isExpanded , setExpanded] = useState(false)
-    function view(){
-        isExpanded ? setExpanded(false) : setExpanded(true)
-    }
-
-    function onclickFora(){
-        document.addEventListener('mousedown', function(e) {
-            var view = document.getElementById('Recipe__ingredients');
-            var valor
-            setExpanded(false)
-            console.log('==> view ==> ', view);
-
-            if (!view.contains(e.target)) {
-                return valor = Boolean(true)
-                setExpanded(false)
-
-            }
-
-            else return valor= Boolean(false)
-            console.log('==> aa ==> ', valor);
-        });
-    }
+    // function setOpen(){
+    //     isExpanded ? setExpanded(false) : setExpanded(true)
+    // }
+    //
+    // function onclickFora(){
+    //     document.addEventListener('mousedown', function(e) {
+    //         var view = document.getElementById('cards');
+    //         var cardButton = document.getElementById('cardButton')
+    //         console.log('==> view ==> ', cardButton);
+    //         console.log(e.target.offsetParent)
+    //         if (e.target.offsetParent.contains(view)){
+    //             setExpanded(false)
+    //         }
+    //         else setExpanded(true)
+    //     });
+    //
+    // }
 
 
     return (
         <div className="Cards" id="cards">
         <Card>
-            <CardActionArea
+            <CardActionArea id='cardButton'
                 value={props.recipie.recipe_id}
                 onClick={() => {
                     props.onClickRecipie(props.recipie.recipe_id)
-                    view()
-                }}
-            onBlur={onclickFora}>
+                    setExpanded(!isExpanded)
+                }}>
                 <CardMedia className="card-img"
                            component="img"
                            height="140"

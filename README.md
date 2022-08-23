@@ -1,3 +1,8 @@
+# Forkify web Challenge 🏅
+# Modified By `Geferson Artuzo`
+
+### `Project to search for recipes in order to acquire knowledge in react`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -14,57 +19,44 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Introdução
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este é um desafio para testar seus conhecimentos de Front-end;
 
-### `npm run build`
+O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando um framework moderno javascript.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Você está livre para usar React, Vue ou Angular 8+ no desenvolvimento da solução deste tech challenge.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Instruções iniciais obrigatórias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Utilizar o seu github pessoal para publicar o desafio. Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);
 
-### `npm run eject`
+## Case
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Vamos dar uma olhada em algumas receitas? A meta é criarmos um aplicativo de pesquisa de receitas, que consuma a API Forkify (https://forkify-api.herokuapp.com). O layout final deverá fica por sua conta, mas temos um exemplo para guiá-lo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![View mock](public/img.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Recursos
 
-## Learn More
+1. Estudar a documentação da REST API: https://forkify-api.herokuapp.com
+2. Utilizar React, Vue ou Angular 8+ para construir a solução do Challenge;
+3. Utilizar Frameworks CSS ou estilo proprio, recomendamos alguns como:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - Tailwind CSS: https://tailwindcss.com/
+    - Material UI: https://material-ui.com/
+    - Angular Material: https://material.angular.io/
+    - Bootstrap: https://getbootstrap.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Trabalhar em um repositório em seu usuário ou utilizar o seu github pessoal (não esqueça de colocar no readme a referência a este challenge);
 
-### Code Splitting
+## Readme do Repositório
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Deve conter o título do projeto
+- Uma descrição sobre o projeto em frase
+- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
+- Como instalar e usar o projeto (instruções)
+- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
+- Se está usando github pessoal, referencie que é um challenge by brn
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
